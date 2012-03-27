@@ -1,0 +1,2 @@
+module Falconer::Store
+end
