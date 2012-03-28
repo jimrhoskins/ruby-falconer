@@ -10,9 +10,12 @@ Gem::Specification.new do |s|
   s.description = 'Falconer Event Endpoint for Ruby and Rack'
   s.authors     = ['Jim Hoskins']
   s.email       = 'jim@jimhoskins.com'
-  s.files       = Dir.glob("{lib}/**/*")
-	s.require_path = 'lib'
   s.homepage    = 'https://github.com/jimrhoskins/ruby-falconer'
+
+	s.files         = `git ls-files`.split("\n")
+	s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+	s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+	s.require_paths = ["lib"]
 
 	s.add_runtime_dependency 'json', '~> 1.5'
 
