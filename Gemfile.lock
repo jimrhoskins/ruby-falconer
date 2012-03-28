@@ -104,4 +104,5 @@ DEPENDENCIES
   json
   minitest-wscolor
   rack-test
+  rake
   sqlite3
