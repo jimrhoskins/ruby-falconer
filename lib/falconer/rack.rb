@@ -8,8 +8,8 @@ class Falconer::Rack
 	def call(env)
 		status, headers, response = @app.call(env)
 
-		if env['HTTP_X_FALCONER_ACCEPT_EVENTS']
-			headers['x-falconer-events'] = Falconer.flush.to_json
+		if env[Falconer::ACCEPT_HEADER_ENV]
+			headers[Falconer::EVENTS_HEADER] = Falconer.flush.to_json
 		end
 
 		[status, headers, response]

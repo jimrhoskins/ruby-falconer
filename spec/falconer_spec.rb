@@ -11,6 +11,10 @@ describe Falconer do
 			Falconer::ACCEPT_HEADER.must_equal 'x-falconer-accept-events'
 		end
 
+		it 'should define the accept events header env key' do
+			Falconer::ACCEPT_HEADER_ENV.must_equal 'HTTP_X_FALCONER_ACCEPT_EVENTS'
+		end
+
 	end
 
 end
