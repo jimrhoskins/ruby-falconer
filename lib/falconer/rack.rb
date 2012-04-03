@@ -10,7 +10,7 @@ class Falconer::Rack
       status, headers, response = @app.call(env)
     else
       status = 200
-      headers = {'Content-Length'=> 0}
+      headers = {'Content-Length'=> '0'}
       response = ''
     end
 

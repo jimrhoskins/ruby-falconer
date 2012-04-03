@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    falconer (0.0.2)
+    falconer (0.0.3)
       json (~> 1.5)
       rails (~> 3.2.2)
 
