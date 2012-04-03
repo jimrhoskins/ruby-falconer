@@ -39,6 +39,17 @@ describe Falconer::Rack do
 
   end
 
+  describe 'polling endpoint' do
+    it 'should return 200 for the polling acition' do
+      Falconer.trigger 'foo', {:bar => 1}
+      get '/@falconer-poll', {}, falconer_accept_header
+      last_response.body.must_equal ''
+      events = JSON.parse events_header
+      events.size.must_equal 1
+      events[0].must_equal ['foo', {'bar'=> 1}]
+    end
+  end
+
   describe 'normal request' do
     it 'should return 200' do
       get '/'
