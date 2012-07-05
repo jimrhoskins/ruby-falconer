@@ -47,8 +47,16 @@ describe Falconer::Rack do
       events = JSON.parse events_header
       events.size.must_equal 1
       events[0].must_equal ['foo', {'bar'=> 1}]
+
+    end
+
+    it 'should return a conforming response' do
+      falconer = Falconer::Rack.new(nil)
+      result = falconer.call('PATH_INFO' => '/@falconer-poll')
+      result[2].must_respond_to :each
     end
   end
+
 
   describe 'normal request' do
     it 'should return 200' do

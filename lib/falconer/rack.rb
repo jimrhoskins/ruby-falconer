@@ -11,7 +11,7 @@ class Falconer::Rack
     else
       status = 200
       headers = {'Content-Length'=> '0'}
-      response = ''
+      response = ['']
     end
 
     if env[Falconer::ACCEPT_HEADER_ENV]
